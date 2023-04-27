@@ -1,4 +1,4 @@
------------------------HOW TO GENERATE ALIGNMENTS?------------------------------------------------
+---------------------------------------------HOW TO GENERATE ALIGNMENTS?------------------------------------------------
 
 Option 1: Generate t FASTA files of sequences of length L given a tree in a newick format:
 
