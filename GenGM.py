@@ -124,7 +124,8 @@ def get_M2(new_distribution,d2, l):
 
 def generate_random_matrix(distribution, l):
     """
-    Returns the markov chain matrix M = M1 · M2 given a branch length
+    Returns the transition matrix M=M1M2 given a branch length
+    and the distribution at the ancestor node.
     """
     res = 1
     # Compute M1
