@@ -4,3 +4,5 @@ It includes all the scripts needed to the reproduce the pipeline described in th
 generates its transition matrices and an alignment of the leaf DNA sequences. Then, FULLRECON is ran using as input these sequences to estimate the generated matrices from which they come.
 
 Command run example: if we want to study the phylogenetic tree on tree_4L.txt (in a Newick format) and use an alignment of length 1000, we should run  `python3 evaluate.py tree_4L.txt 1000`
+
+The output display, for each branch, the simulated and estimated transition matrix, the branch length estimation and the likelihood of the phylogenetic tree given the estimated parameters.
