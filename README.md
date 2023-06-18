@@ -13,3 +13,7 @@ For example, t = 5 and L = 1000;
 For example, L1 = 500, L2 = 1000 and L3 = 10000;  
 	`python3 GenGM.py tree_4L.txt L500 L1000 L10000` 
 
+ ## Substitution parameters estimation
+
+ See FULLRECON
+
