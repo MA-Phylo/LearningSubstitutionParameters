@@ -5,4 +5,4 @@ generates its transition matrices and an alignment of the leaf DNA sequences. Th
 
 Command run example: if we want to study the phylogenetic tree on tree_4L.txt (in a Newick format) and use an alignment of length 1000, we should run  `python3 evaluate.py tree_4L.txt 1000`
 
-The output display, for each branch, the simulated and estimated transition matrix, the branch length estimation and the likelihood of the phylogenetic tree given the estimated parameters.
+The output displayed includes, for each branch, the simulated and estimated transition matrix and the branch length estimation. The likelihood of the phylogenetic tree given the estimated parameters it is also provided.
