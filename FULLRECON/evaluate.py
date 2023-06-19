@@ -158,26 +158,21 @@ def map_node(n):
     if n.name == "Leaf_4":
         return 5
 
-
 def log_likelihood(states, u_i, params, root_distribution, n_int):
     """
-    #Compute the log-likehood of the tree
+    Compute the log-likehood of the tree
     """
     logL = 0
-    for obs in states:
-        p_i = 0
-        observed_data = obs[n_int:]
-        if observed_data in u_i:
-            for state in states:
-                if state[n_int:] == observed_data:
-                    pi = root_distribution[int(state[0])]
-                    for p in params:
-                        u, v = p.source, p.target
-                        u = map_node(u)
-                        v = map_node(v)
-                        pi *= p.matrix[int(state[u]), int(state[v])]
-                    p_i += pi
-        logL += (u_i[observed_data] * math.log(p_i))
+    for observed_data in u_i:
+        p = 0
+        for state in states:
+            if observed_data == state[n_int:]:
+                pi = root_distribution[int(state[0])]
+                for param in params.items():
+                    u, v = int(param[1].edge[0].name.split("_")[1]), int(param[1].edge[1].name.split("_")[1])
+                    pi *= param[1].transition_matrix[int(state[u]), int(state[v])]
+                p += pi
+        logL += (u_i[observed_data] * math.log(p))
     return logL
 
 print("Log-likelihood: ", log_likelihood(states, u_i, Results, r_distr, 2))
