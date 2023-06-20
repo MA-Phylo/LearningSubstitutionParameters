@@ -142,7 +142,6 @@ states = list(itertools.product(list(sorted_hidden_combinations), list(u_i.keys(
 states = [i[0]+i[1] for i in states]
 
 r_distr = final_nodes_distributions[Results[0].source]
-print(r_distr)
 
 def map_node(n):
     if n.name == "Root":
@@ -169,8 +168,10 @@ def log_likelihood(states, u_i, params, root_distribution, n_int):
             if observed_data == state[n_int:]:
                 pi = root_distribution[int(state[0])]
                 for param in params:
-                    u, v = int(param[1].edge[0].name.split("_")[1]), int(param[1].edge[1].name.split("_")[1])
-                    pi *= param[1].transition_matrix[int(state[u]), int(state[v])]
+                    u, v = param.source, param.target
+                    u = map_node(u)
+                    v = map_node(v)
+                    pi *= param.matrix[int(state[u]), int(state[v])]
                 p += pi
         logL += (u_i[observed_data] * math.log(p))
     return logL
