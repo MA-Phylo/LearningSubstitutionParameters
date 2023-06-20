@@ -168,7 +168,7 @@ def log_likelihood(states, u_i, params, root_distribution, n_int):
         for state in states:
             if observed_data == state[n_int:]:
                 pi = root_distribution[int(state[0])]
-                for param in params.items():
+                for param in params:
                     u, v = int(param[1].edge[0].name.split("_")[1]), int(param[1].edge[1].name.split("_")[1])
                     pi *= param[1].transition_matrix[int(state[u]), int(state[v])]
                 p += pi
